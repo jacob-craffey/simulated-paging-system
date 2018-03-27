@@ -19,6 +19,7 @@ public class Menu extends JFrame{
         super("Simulated Paging System");
         setSize(300,100);
         setResizable(true);
+        super.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         /* Triggers when user clicks 'btnImport'
         *  Prompts user to select file and saves to 'this.file' */

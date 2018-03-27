@@ -2,7 +2,6 @@ package simulated.paging.system;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 
 public class Simulate extends JFrame{
 
@@ -35,8 +34,9 @@ public class Simulate extends JFrame{
     public Simulate() {
         super("Simulate");
 
-        File file = Menu.getFile();
-        lblFile.setText(file.getName());
+        Steps steps = new Steps(Menu.getFile());
+
+        lblFile.setText(steps.name);
         filePanel.add(lblFile);
 
         panel.setLayout(new GridLayout(8,2));
@@ -67,6 +67,8 @@ public class Simulate extends JFrame{
         txtFrame6.setEnabled(false);
         txtFrame7.setEnabled(false);
 
+        btnNext.addActionListener(e -> steps.readNext());
+
         nextPanel.add(btnNext);
 
         add(filePanel, BorderLayout.NORTH);
@@ -76,9 +78,5 @@ public class Simulate extends JFrame{
         setSize(300, 500);
         setResizable(true);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new Simulate();
     }
 }
